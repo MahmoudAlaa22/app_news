@@ -1,4 +1,4 @@
-import 'package:app_news/controller/bloc/cubit.dart';
+
 import 'package:app_news/modules/news/bloc/cubit.dart';
 import 'package:app_news/modules/news/bloc/states.dart';
 import 'package:app_news/widgets/build_listview_of_news.dart';
@@ -35,7 +35,7 @@ class SearchScreen extends StatelessWidget {
                       hintText: 'Searching here...'
                     ),
                     onChanged: (String value){
-                      NewsCubit.get(context).getSearch(value: value);
+                      NewsCubit.get(context).getSearch(searchValue: value);
                     },
                   ),
                 ),

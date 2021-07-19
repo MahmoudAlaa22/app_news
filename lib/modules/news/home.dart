@@ -24,6 +24,7 @@ class Home extends StatelessWidget {
                       Icons.search,
                     ),
                     onPressed: () {
+                      NewsCubit.get(context).search=[];
                       goToScreen(context: context, widget: SearchScreen());
                     }),
                 IconButton(

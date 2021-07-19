@@ -174,16 +174,18 @@ class NewsCubit extends Cubit<NewsStates>{
   }
 
   List<dynamic> search = [];
-  void getSearch({@required String value})
+  void getSearch({@required String searchValue})
   {
     emit(NewsGetSearchLoadingState());
-      DioHelper.getDataOfSearch(value: value)
+      DioHelper.getDataOfSearch(value: searchValue)
           .then((value)
       {
-        search = value.data['articles'];
+        search =  value.data['articles'];
+        print("search is $search");
         emit(NewsGetSearchSuccessState());
       }).catchError((error){
-        print(error.toString());
+        search=[];
+        print("error.toString() ${error.toString()}");
         emit(NewsGetSearchErrorState(error.toString()));
       });
 
